@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Cormorant+Garamond' rel='stylesheet' type='text/css'>
+</head>
+<style>
+#nonsense {
+  /* font-family: 'Rock Salt', cursive; */
+  font-size: 70px;
+  text-shadow: 10 10 30px rgba(0,0,0,0);
+  color: rgba(0,0,0,0);
+  font-family: 'Reenie Beanie', cursive;
+  text-align: center;
+  margin: auto;
+  padding: auto;
+  padding-top: 100px;
+  min-height: 95%;
+}
+#gurubox {
+  margin: auto;
+  padding: auto;
+  padding-top: 30px;
+  text-align: center;
+  overflow: auto;
+}
+
+input {
+  text-align: center;
+  border: 0px solid;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+#target {
+  font-size: 40px;
+  background: #F3F3F3;
+}
+
+#guru-button {
+  font-style: bold;
+  font-size: 20px;
+  margin: auto;
+  padding: auto;
+  width: 6%; height: 40px;
+}
+
+#guru-button:hover {
+  transition: background 0.8s ease;
+  background: lightgrey;
+}
+
+</style>
+<script>
+function guruify() {
+  $("#line1").css("transition", "all 0.3s");
+  $("#line1").css("color", "rgba(0,0,0,0)");
+  $("#line1").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+
+  $("#line2").css("transition", "all 0.3s");
+  $("#line2").css("color", "rgba(0,0,0,0)");
+  $("#line2").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+
+  $("#line3").css("transition", "all 0.3s");
+  $("#line3").css("color", "rgba(0,0,0,0)");
+  $("#line3").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+
+  $("#line4").css("transition", "all 0.3s");
+  $("#line4").css("color", "rgba(0,0,0,0)");
+  $("#line4").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+
+  var target = $('#target').val();
+  console.log(target);
+  $.post("/guruify", {'data' : target},
+   async function(data) {
+    var poem = data;
+    var xp = poem.split("|");
+    console.log(xp);
+    $("#line1").html(xp[0]);
+    $("#line2").html(xp[1]);
+    $("#line3").html(xp[2]);
+    $("#line4").html(xp[3]);
+
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    $("#line1").css("transition", "all 3s");
+    $("#line1").css("color", "black");
+    $("#line1").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
+
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    $("#line2").css("transition", "all 3s");
+    $("#line2").css("color", "black");
+    $("#line2").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
+
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    $("#line3").css("transition", "all 3s");
+    $("#line3").css("color", "black");
+    $("#line3").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
+
+    await new Promise(resolve => setTimeout(resolve, 2500));
+    $("#line4").css("transition", "all 3s");
+    $("#line4").css("color", "black");
+    $("#line4").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
+
+    // await new Promise(resolve => setTimeout(resolve, 1500));
+    // $("#line1").css("transition", "all 0.8s");
+    // $("#line1").css("color", "rgba(0,0,0,0)");
+    // $("#line1").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+    //
+    // await new Promise(resolve => setTimeout(resolve, 1500));
+    // $("#line2").css("transition", "all 0.8s");
+    // $("#line2").css("color", "rgba(0,0,0,0)");
+    // $("#line2").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+    //
+    // await new Promise(resolve => setTimeout(resolve, 1500));
+    // $("#line3").css("transition", "all 0.8s");
+    // $("#line3").css("color", "rgba(0,0,0,0)");
+    // $("#line3").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+    //
+    // await new Promise(resolve => setTimeout(resolve, 1500));
+    // $("#line4").css("transition", "all 0.8s");
+    // $("#line4").css("color", "rgba(0,0,0,0)");
+    // $("#line4").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+   }
+ );
+};
+</script>
+<form id="gurubox">
+  <input type="text" id="target"></input><br><br>
+  <input id="guru-button" type="button" onclick='guruify()' value="Guruify"></input>
+</form>
+<div id="nonsense">
+  <p id='line1' class='line'></p>
+  <p id='line2' class='line'></p>
+  <p id='line3' class='line'></p>
+  <p id='line4' class='line'></p>
+</div>
+</html>
