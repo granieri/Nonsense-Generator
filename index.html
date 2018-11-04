@@ -68,9 +68,9 @@ function guruify() {
   $("#line3").css("color", "rgba(0,0,0,0)");
   $("#line3").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
 
-  $("#line4").css("transition", "all 0.3s");
-  $("#line4").css("color", "rgba(0,0,0,0)");
-  $("#line4").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
+  // $("#line4").css("transition", "all 0.3s");
+  // $("#line4").css("color", "rgba(0,0,0,0)");
+  // $("#line4").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
 
   var target = $('#target').val();
   console.log(target);
@@ -82,7 +82,7 @@ function guruify() {
     $("#line1").html(xp[0]);
     $("#line2").html(xp[1]);
     $("#line3").html(xp[2]);
-    $("#line4").html(xp[3]);
+    // $("#line4").html(xp[3]);
 
     await new Promise(resolve => setTimeout(resolve, 1500));
     $("#line1").css("transition", "all 3s");
@@ -99,10 +99,10 @@ function guruify() {
     $("#line3").css("color", "black");
     $("#line3").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
 
-    await new Promise(resolve => setTimeout(resolve, 2500));
-    $("#line4").css("transition", "all 3s");
-    $("#line4").css("color", "black");
-    $("#line4").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
+    // await new Promise(resolve => setTimeout(resolve, 2500));
+    // $("#line4").css("transition", "all 3s");
+    // $("#line4").css("color", "black");
+    // $("#line4").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
 
     // await new Promise(resolve => setTimeout(resolve, 1500));
     // $("#line1").css("transition", "all 0.8s");
@@ -135,6 +135,6 @@ function guruify() {
   <p id='line1' class='line'></p>
   <p id='line2' class='line'></p>
   <p id='line3' class='line'></p>
-  <p id='line4' class='line'></p>
+  <!-- <p id='line4' class='line'></p> -->
 </div>
 </html>

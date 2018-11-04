@@ -22,24 +22,8 @@ def guruify():
     except:
         poem = "No wisdom about this"
     ps = poem.split()
-    commonbaddies = [
-    'and',
-    'of',
-    'the',
-    'as',
-    'for'
-    'a',
-    'to',
-    'like',
-    'in'
-    ]
-    for word in ps[::-1]:
-        if word in commonbaddies:
-            ps = ps[:-1]
-        else:
-            break
-    q = len(ps) // 4
-    poem = ' '.join(ps[:q]) + '|' + ' '.join(ps[q:q*2]) + '|' + ' '.join(ps[q*2:q*3]) + '|' + ' '.join(ps[q*3:])
+    q = len(ps) // 3
+    poem = ' '.join(ps[:q]) + '|' + ' '.join(ps[q:q*2]) + '|' + ' '.join(ps[q*2:])
     return poem
 
 # @app.route('/guruify', methods = ['POST'])

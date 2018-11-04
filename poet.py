@@ -3,6 +3,7 @@ import requests
 import string
 import random
 import itertools
+import pyphen
 
 class Poet:
 
@@ -33,9 +34,19 @@ class Poet:
         rx = random.randint(0, len(chain.keys())-1)
         prevkey = list(chain.keys())[rx] # root
         re = lambda x: x[random.randint(0,len(x)-1)]# random element
-        poem = [*prevkey]
-        for i in range(18):
+        syls = [5, 7, 5]
+        dic = pyphen.Pyphen(lang='en_US')
+        poem = []
+        line = []
+        while syls:
             word = re(chain[prevkey])
             prevkey = (prevkey[1], word)
-            poem.append(word)
-        return ' '.join(poem)
+            sylc = len(dic.inserted(word).split('-'))
+            if (syls[0] - sylc) >= 0:
+                syls[0] -= sylc
+                line.append(word)
+            if syls[0] == 0:
+                syls.pop(0)
+                poem.append(' '.join(line))
+                line = []
+        return '|'.join(poem)
