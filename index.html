@@ -55,6 +55,13 @@ input {
 
 </style>
 <script>
+$(document).keypress(function(e) {
+  if(e.which == 13) {
+    e.preventDefault()
+    guruify()
+  }
+})
+
 function guruify() {
   $("#line1").css("transition", "all 0.3s");
   $("#line1").css("color", "rgba(0,0,0,0)");
@@ -84,7 +91,7 @@ function guruify() {
     $("#line3").html(xp[2]);
     $("#line4").html(xp[3]);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise(resolve => setTimeout(resolve, 500));
     $("#line1").css("transition", "all 3s");
     $("#line1").css("color", "black");
     $("#line1").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
@@ -103,26 +110,6 @@ function guruify() {
     $("#line4").css("transition", "all 3s");
     $("#line4").css("color", "black");
     $("#line4").css("text-shadow", "0 0 2px rgba(0,0,0,0.5)");
-
-    // await new Promise(resolve => setTimeout(resolve, 1500));
-    // $("#line1").css("transition", "all 0.8s");
-    // $("#line1").css("color", "rgba(0,0,0,0)");
-    // $("#line1").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
-    //
-    // await new Promise(resolve => setTimeout(resolve, 1500));
-    // $("#line2").css("transition", "all 0.8s");
-    // $("#line2").css("color", "rgba(0,0,0,0)");
-    // $("#line2").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
-    //
-    // await new Promise(resolve => setTimeout(resolve, 1500));
-    // $("#line3").css("transition", "all 0.8s");
-    // $("#line3").css("color", "rgba(0,0,0,0)");
-    // $("#line3").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
-    //
-    // await new Promise(resolve => setTimeout(resolve, 1500));
-    // $("#line4").css("transition", "all 0.8s");
-    // $("#line4").css("color", "rgba(0,0,0,0)");
-    // $("#line4").css("text-shadow", "0 0 0px rgba(0,0,0,0)");
    }
  );
 };
