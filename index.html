@@ -85,6 +85,7 @@ function guruify() {
   console.log(target);
   $.post("/guruify", {'data' : target},
    async function(data) {
+    $("#line1").html("Meditating...")
     var poem = data;
     var xp = poem.split("|");
     console.log(xp);
